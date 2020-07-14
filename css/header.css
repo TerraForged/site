@@ -1,0 +1,119 @@
+.sticky-header-menu {
+    padding: 1rem 3rem;
+    background-color: #252525;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    margin: 0 auto;
+}
+
+@media screen and (orientation: portrait) {
+    .sticky-header-menu {
+        padding: 1rem;
+    }
+}
+
+.sticky-header-menu img {
+    height: 100%;
+    margin-right: 2em;
+}
+
+section .sticky-header-menu {
+    top: 8rem;
+    z-index: 2;
+    color: unset;
+    background-color: white;
+    border-bottom: 1px solid rgb(206, 210, 226);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sticky-header-menu a {
+    color: inherit;
+    font-weight: bold;
+    display: inline-block;
+    align-items: center;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sticky-header-menu a::after {
+    display: inline-block;
+    width: 1em;
+    content: " ";
+}
+
+.mobile-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    top: 0;
+    height: 100%;
+}
+
+.mobile-menu input {
+    display: none;
+}
+
+.mobile-menu svg {
+    object-fit: contain;
+    flex: 1;
+    order: 1;
+}
+
+.mobile-menu .items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    order: 2;
+    position: absolute;
+}
+
+@media screen and (orientation: landscape) {
+    .mobile-menu svg {
+        display: none;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .mobile-menu {
+        flex-direction: column;
+        align-self: flex-start;
+        align-items: flex-start;
+    }
+    .mobile-menu svg {
+        display: unset;
+        align-self: flex-end;
+    }
+    .mobile-menu>input:not(:checked)+.items {
+        display: none;
+    }
+    .mobile-menu>input:checked+.items {
+        display: unset;
+        flex-direction: column;
+        background-color: #252525;
+        position: absolute;
+        top: 3em;
+        left: -5em;
+        padding: 1em;
+        width: calc(100% + 6em);
+    }
+    .mobile-menu>input:checked+.items>a {
+        width: 100%;
+        padding: 0.5em 0;
+    }
+}
